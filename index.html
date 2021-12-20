@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="x-dns-prefetch-control" content="on" />
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, width=device-width" /> 
+  <meta name="description" content="{{ &OPT.siteDescription }}" /> 
+  <meta name="keywords" content="{{ &keyWords }}" /> 
+  <title>{{ &title }}</title> 
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/lookworldd/BlogAssets@main/themes/White/files/favicon.ico" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lookworldd/BlogAssets@main/themes/White/files/white.css" /> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lookworldd/BlogAssets@main/themes/White/files/shortcode.white.css" /> 
+  {{ &OPT.codeBeforHead }}
+ </head> 
+ <body> 
+  <div class="loading"> 
+   <div id="loader"></div>
+  </div> 
+  <main> 
+   <div id="pjax-container" class="pjax-container-shadow"> 
+    <div id="header" style="padding-bottom: 10px"> 
+     <div id="header-container"> 
+      <div id="header-text"> 
+       <a href="/"> 
+        <div id="header-title">
+         {{ &OPT.siteName }}
+        </div> </a> 
+       <span>{{ &OPT.siteDescription }}</span> 
+      </div> 
+      <nav id="nav-top"> 
+      {{ #widgetMenuList }}
+	   <a href="{{ &url }}">{{ &title }}</a>
+      {{ /widgetMenuList }}
+      </nav> 
+     </div> 
+    </div> 
+    {{ #articleList }}
+    <a href="/article/{{&id}}/{{&link}}.html"> 
+     <div class="article-item hoverup"> 
+      <h2><span>{{ &title }}</span></h2> 
+      <em>{{ &contentText }} ...</em> 
+      <p class="clear"><span id="article-date">
+       {{ &createDate10 }}
+      </span></p> 
+     </div> </a> 
+    {{ /articleList }}
+    <div id="pages" class="clear">
+     {{ #pageNewer }}
+     <a class="prev" href="{{ &url }}">上一页</a>
+     {{ /pageNewer }}
+     {{ #pageOlder }}
+     <a class="next" href="{{ &url }}">下一页</a>
+     {{ /pageOlder }}
+    </div> 
+   </div> 
+  </main> 
+  <div id="footer"> 
+   <div id="footer-content" class="clear"> 
+    <div id="footer-content-left"> 
+     <p>{{ &OPT.copyRight }}</p> 
+    </div> 
+   </div> 
+  </div> 
+   <script src="https://cdn.jsdelivr.net/gh/lookworldd/BlogAssets@main/themes/White/files/jquery.min.js"></script> 
+   <script src="https://cdn.jsdelivr.net/gh/lookworldd/BlogAssets@main/themes/White/files/moemoe.js"></script> 
+   <script src="https://cdn.jsdelivr.net/gh/lookworldd/BlogAssets@main/themes/White/files/jquery.totop.js"></script> 
+   <a href="javascript:;" class="to-top"><i class="i gototop"></i></a> 
+   <script>
+   $('.to-top').toTop({
+      //options with default values
+      autohide: true,
+      offset: 420,
+      speed: 500,
+      position: true,
+      right: 15,
+      bottom: 30
+   });
+   </script>
+   {{ &OPT.codeBeforBody }}
+ </body>
+</html>
